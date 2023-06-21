@@ -1,0 +1,32 @@
+.field {
+	position: relative;
+    background: #FCFCFC;
+    margin-bottom: 32px;
+    margin: 20px 36px;
+	  input {
+      width: 100%;
+      line-height: 40px;
+      padding: 0 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+      color: #222;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      &:focus {
+        outline: 0;
+        border-color: #3463F8;
+      }
+	  }
+    img{
+      position: absolute;
+      right: 15px;
+      top: 8px
+    }
+}
+
+.listBlock{
+  margin: 20px 36px;
+  p{
+    padding-top: 10px;
+  }
+}

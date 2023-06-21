@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react"
+import './App.scss'
+import searchIcon from "./assets/searchIcon.png"
+import data from "./data"
 
 function App() {
+  const[searchArr, setSearchArr] = useState([])
+
+  const onSearch = (e) => {
+    if(e.target.value === ""){
+      setSearchArr([])
+    }else{
+        const searchString = e.target.value;
+        const filteredFood = data.filter((item) => {
+        return item.includes(searchString);
+      });
+      setSearchArr(filteredFood)
+    }
+    
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className='searchBlock'>
+          <div className="field">
+              <input onChange={onSearch} placeholder="Search" type="text"/>
+              <img width={25} src={searchIcon}/>
+            </div>
+        </div>
+        <div className="listBlock">
+          {searchArr.map(item => {
+            return(
+              <p key={item}>{item}</p>
+            )
+          })}
+        </div>
     </div>
   );
 }
